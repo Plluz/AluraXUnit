@@ -8,17 +8,18 @@ namespace AluraXUnit.Test
 
         public MathsTest() => _maths = new Maths();
 
-        [Fact]
-        public void SumWorks()
+        [Theory]
+        [InlineData(10, new int[] { 5, 5 })]
+        [InlineData(14, new int[] { 20, -6 })]
+        [InlineData(17, new int[] { 10, 2, 5 })]
+        public void SumWorks(int expected, int[] values)
         {
-            // Arrange
-            var values = new int[] {5, 5};
-
             // Act
-            var result = _maths.Sum(values);
+            var result = 0;
+            foreach (var value in values)
+                result = _maths.Sum(result, value);
 
             // Assert
-            var expected = 10;
             Assert.Equal(expected, result);
         }
 
