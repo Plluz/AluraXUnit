@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection;
+using System.Linq;
 
 namespace AluraXUnit
 {
@@ -22,6 +23,16 @@ namespace AluraXUnit
                 total *= number;
 
             return total;
+        }
+
+        public int Factorial(int number)
+        {
+            var result = 1;
+
+            for (int i = number; i > 0; i--)
+                result *= i;
+
+            return result;
         }
 
         public bool IsEven(int number)
