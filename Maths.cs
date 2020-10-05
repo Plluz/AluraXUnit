@@ -16,7 +16,7 @@ namespace AluraXUnit
 
         public int Multiply(params int[] numbers)
         {
-            var total = 0;
+            var total = 1;
 
             foreach (var number in numbers)
                 total *= number;
