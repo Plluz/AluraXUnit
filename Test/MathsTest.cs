@@ -23,17 +23,18 @@ namespace AluraXUnit.Test
             Assert.Equal(expected, result);
         }
 
-        [Fact]
-        public void MultiplicationWorks()
+        [Theory]
+        [InlineData(16, new int[] { 8, 2 })]
+        [InlineData(-25, new int[] { 5, -5 })]
+        [InlineData(120, new int[] { 2, 3, 4, 5 })]
+        public void MultiplicationWorks(int expected, int[] values)
         {
-            // Arrange
-            var values = new int[] { 5, 5 };
-
             // Act
-            var result = _maths.Multiply(values);
+            var result = 1;
+            foreach (var value in values)
+                result = _maths.Multiply(result, value);
 
             // Assert
-            var expected = 25;
             Assert.Equal(expected, result);
         }
     }
